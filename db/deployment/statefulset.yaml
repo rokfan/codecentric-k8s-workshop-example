@@ -29,11 +29,11 @@ spec:
         ports:
         - containerPort: 6379
         volumeMounts:
-        - name: # TO DO
+        - name: RedisMount
           mountPath: /data
   volumeClaimTemplates:
   - metadata:
-      name: # TO DO
+      name: RedisMount
     spec:
       accessModes: [ ReadWriteOnce ]
       storageClassName: example-nfs
