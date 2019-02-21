@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(class='mw7 center ph3-ns pb3')
+    div(class='ph3 pv1 w-100')
+      img(class="db center mw5", src=app.rootPath+"/images/cc.png", title="codecentric")
+
+    h1 Good job!
+    p You have successfully deployed a three-tier web app to Kubernetes.
+
+    h2 Frontend environment
+    div(class='bg-black code silver ph3 pv1 pre')
+      pre #{env}
+
+    h2 Backend response data
+    div(class='bg-black code silver ph3 pv1 pre')
+      pre Request UUID: #{request_uuid}
+        |
+        | Timestamp: #{time}

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: registry.workshop.breda.local/web:latest
+        env:
+        - name: PORT
+          value: '3000'
+        - name: API_URL
+          value: http://api
+        - name: APP_ROOT
+          value: ""
+        - name: REDIS_SERVER_URL
+          value: redis://redis:6379
+        ports:
+        - containerPort: 3000

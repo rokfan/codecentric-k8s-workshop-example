@@ -1,0 +1,6 @@
+#!/bin/env node
+const app = require('../app.js');
+
+const defaultPort = '3000';
+const port = parseInt(process.env.PORT || defaultPort, 10);
+app.listen(port, () => console.info(`listening on port ${port}`));
