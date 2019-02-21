@@ -19,10 +19,10 @@ spec:
         - name: PORT
           value: '3000'
         - name: API_URL
-          value: http://api
+          value: # TO DO
         - name: APP_ROOT
           value: ""
         - name: REDIS_SERVER_URL
-          value: redis://redis:6379
+          value: redis:// # TO DO
         ports:
         - containerPort: 3000

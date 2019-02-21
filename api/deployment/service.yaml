@@ -5,9 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: api
+    # TO DO
   ports:
   - protocol: TCP
     name: http
     port: 80
-    targetPort: 3000
+    targetPort: # TO DO

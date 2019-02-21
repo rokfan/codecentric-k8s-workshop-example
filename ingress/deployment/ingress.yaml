@@ -13,12 +13,12 @@ spec:
       - path: /api/
         backend:
           serviceName: api
-          servicePort: http
+          servicePort: # TO DO
       - path: /redis/
         backend:
-          serviceName: redis
-          servicePort: redis-ui
+          serviceName: # TO DO
+          servicePort: # TO DO
       - path: /
         backend:
-          serviceName: web
-          servicePort: http
+          serviceName: # TO DO
+          servicePort: # TO DO
