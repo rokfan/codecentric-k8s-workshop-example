@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  app-build:
+    image: registry.workshop.breda.local/web:${APP_VERSION}
+    build:
+      context: .
+    entrypoint: 'true'
+    restart: 'no'
+  app:
+    image: registry.workshop.breda.local/web:${APP_VERSION}
+    init: true
+    stop_grace_period: 1s
+    depends_on:
+    - app-build
+    ports:
+    - 3000:3000
+    environment:
+    - PORT=3000
+    - REDIS_SERVER_URL=tcp://redis:6379
+    restart: always

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis-ui
+        image: rediscommander/redis-commander
+        ports:
+        - containerPort: 8081
+        env:
+        - name: REDIS_PORT
+          value: "6379"
+        - name: REDIS_HOST
+          value: "localhost"
+        - name: URL_PREFIX
+          value: /redis
+      - name: redis
+        image: redis:5.0.3-alpine3.9
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-data
+    spec:
+      accessModes: [ ReadWriteOnce ]
+      storageClassName: example-nfs
+      resources:
+        requests:
+          storage: 1Gi

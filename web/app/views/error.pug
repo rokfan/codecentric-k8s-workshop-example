@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 HTTP #{error.status}
+  p(class='bl b--silver bw2 pl3 pv2 db')= message
+
+  h3 Result
+  div(class='bg-black code silver ph3 pv1 pre')
+    pre= error.response
+
+  h3 Trace
+  div(class='bg-black code silver ph3 pv1 pre')
+    pre= error.stack
